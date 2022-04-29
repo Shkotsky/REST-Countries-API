@@ -1,30 +1,42 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <Navbar @toggleMode="darkMode" :toggle="toggle" />
+  <router-view />
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import Navbar from "@/components/Navbar.vue";
+import { ref } from "@vue/reactivity";
+import { provide } from "@vue/runtime-core";
 
-nav {
-  padding: 30px;
+export default {
+  components: { Navbar },
+  setup() {
+    const toggle = ref(null);
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+    if (localStorage.darkMode && localStorage.darkMode === "dark") {
+      toggle.value = false;
+    } else {
+      toggle.value = true;
     }
-  }
-}
+
+    const darkMode = () => {
+      toggle.value = !toggle.value;
+
+      if (toggle.value) {
+        localStorage.setItem("darkMode", "light");
+      } else {
+        localStorage.setItem("darkMode", "dark");
+      }
+
+      console.log(localStorage);
+    };
+
+    provide("toggle", toggle);
+    return { darkMode, toggle };
+  },
+};
+</script>
+
+
+<style lang="scss">
 </style>
