@@ -1,19 +1,19 @@
-# rest-countries
+# REST Countries API with color theme switcher
 
-## Project setup
-```
-yarn install
-```
+### The challenge
+#### Users are able to:
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+* See all countries from the API on the homepage
+* Search for a country using an input field
+* Filter countries by region
+* Click on a country to see more detailed information on a separate page
+* Click through to the border countries on the detail page
+* Toggle the color scheme between light and dark mod
 
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Built with :cowboy_hat_face:	
+- HTML5
+- CSS
+- Flexbox
+- CSS Grid
+- SASS (SCSS)
+- Vue 3
