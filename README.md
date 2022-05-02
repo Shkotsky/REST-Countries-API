@@ -1,6 +1,5 @@
 # REST Countries API with color theme switcher
 
-### The challenge
 
 <img src="images/restScrShot.png">
 
@@ -11,9 +10,9 @@
 * Filter countries by region
 * Click on a country to see more detailed information on a separate page
 * Click through to the border countries on the detail page
-* Toggle the color scheme between light and dark mod
+* Toggle the color scheme between light and dark mode
 
-## Built with :cowboy_hat_face:	
+## Built With :cowboy_hat_face:	
 - HTML5
 - CSS
 - Flexbox
