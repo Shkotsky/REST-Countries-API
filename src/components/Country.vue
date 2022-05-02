@@ -18,8 +18,7 @@
 </template>
 
 <script>
-import gsap from "gsap";
-import { onMounted, onUpdated } from "@vue/runtime-core";
+
 export default {
   props: {
     country: Object,
@@ -31,16 +30,6 @@ export default {
       }
     };
 
-    // onMounted(() => {
-    //   console.log("KUR");
-    //   gsap.from(".bla", {
-    //     duration: 0.1,
-    //     opacity: 0,
-    //     scale: 0,
-    //     y: 100,
-    //     stagger: 0.1,
-    //   });
-    // });
     return { formatNum };
   },
 };

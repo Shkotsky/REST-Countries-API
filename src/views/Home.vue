@@ -75,12 +75,8 @@ import {
   ref,
   watch,
   inject,
-  onUpdated,
   defineAsyncComponent,
-  onMounted,
-  watchEffect,
 } from "vue";
-import gsap from "gsap";
 import Country from "@/components/Country.vue";
 import Loader from "@/components/Loader.vue";
 import getCountries from "@/composables/getCountries";
@@ -113,16 +109,6 @@ export default {
 
     handleCountries();
 
-
-    onMounted(() => {
-      gsap.from(".card", {
-        duration: 0.5,
-        opacity: 0,
-        scale: 3,
-        y: 800,
-        stagger: 0.1,
-      });
-    });
 
     watch(search, async () => {
       if (region && region.value === "All" && search.value.length > 0) {
