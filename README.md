@@ -1,6 +1,9 @@
 # REST Countries API with color theme switcher
 
 ### The challenge
+
+<img src="images/restScrShot.png">
+
 #### Users are able to:
 
 * See all countries from the API on the homepage
