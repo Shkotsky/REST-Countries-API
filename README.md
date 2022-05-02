@@ -16,4 +16,9 @@
 - Flexbox
 - CSS Grid
 - SASS (SCSS)
+- JavaScript
 - Vue 3
+
+
+## Live Demo
+Link for live demo<a href="https://celadon-pika-5cb5e6.netlify.app/"> click here. </a> :point_left:
