@@ -13,7 +13,7 @@ export default {
   setup() {
     const toggle = ref(null);
 
-    if (localStorage.darkMode && localStorage.darkMode === "dark") {
+    if (localStorage.darkMode && localStorage.darkMode === "Dark") {
       toggle.value = false;
     } else {
       toggle.value = true;
@@ -23,12 +23,11 @@ export default {
       toggle.value = !toggle.value;
 
       if (toggle.value) {
-        localStorage.setItem("darkMode", "light");
+        localStorage.setItem("darkMode", "Light");
       } else {
-        localStorage.setItem("darkMode", "dark");
+        localStorage.setItem("darkMode", "Dark");
       }
 
-      console.log(localStorage);
     };
 
     provide("toggle", toggle);

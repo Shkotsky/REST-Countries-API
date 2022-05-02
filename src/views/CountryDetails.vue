@@ -6,79 +6,86 @@
     <div v-if="error" class="error-message">
       <h2>{{ error }}</h2>
     </div>
-    <div v-if="data" class="wrapper-details">
+
+    <div class="back-btn">
       <div
         @click="handleBack"
-        class="btn back-btn"
+        class="btn back-btn--size"
         :class="toggle ? 'light' : 'dark'"
       >
         <fa icon="arrow-left" /> <span> Back </span>
       </div>
-      <div v-if="data" class="country">
-        <div class="country__image">
-          <img :src="data.flag" alt="flag" />
-        </div>
-        <div class="country__text">
-          <h2>{{ data.name }}</h2>
-          <div class="country__text__details">
-            <div>
-              <p>
-                <span class="font-weight-bold">Native Name: </span>
-                {{ data.nativeName }}
-              </p>
-              <p>
-                <span class="font-weight-bold">Population: </span
-                >{{ formatNum(data.population) }}
-              </p>
-              <p>
-                <span class="font-weight-bold">Region: </span>{{ data.region }}
-              </p>
-              <p>
-                <span class="font-weight-bold">Capital: </span
-                >{{ data.capital }}
-              </p>
-            </div>
-            <div>
-              <p>
-                <span class="font-weight-bold">Top Level Domain: </span
-                >{{ data.topLevelDomain[0] }}
-              </p>
-              <p>
-                <span class="font-weight-bold">Currency: </span>
-                <span
-                  v-for="(currency, index) in data.currencies"
-                  :key="currency"
-                >
-                  {{ currency.name }}
-                  <span v-if="index + 1 < data.currencies.length">,</span>
-                </span>
-              </p>
-              <p>
-                <span class="font-weight-bold">Languages: </span>
-                <span
-                  v-for="(language, index) in data.languages"
-                  :key="language"
-                >
-                  {{ language.name }}
-                  <span v-if="index + 1 < data.languages.length">,</span>
-                </span>
-              </p>
-            </div>
+    </div>
+
+    <div v-if="data" class="wrapper-details">
+      <TransitionGroup  name="fade" appear :key="data.name">
+        <div v-if="data" class="country" :key="data.name">
+          <div class="country__image">
+            <img :src="data.flag" alt="flag" />
           </div>
-          <div class="borders" v-if="borderCountry">
-            <span class="borders__title">Border Countries: </span>
-            <div v-for="border in borderCountry" :key="border">
-              <div
-                class="btn border-btn"
-                :class="toggle ? 'light' : 'dark'"
-                @click="handleBorder(border.alpha3Code)"
-              >
-                {{ border.name }}
+          <div class="country__text">
+            <h2>{{ data.name }}</h2>
+            <div class="country__text__details">
+              <div>
+                <p>
+                  <span class="font-weight-bold">Native Name: </span>
+                  {{ data.nativeName }}
+                </p>
+                <p>
+                  <span class="font-weight-bold">Population: </span
+                  >{{ formatNum(data.population) }}
+                </p>
+                <p>
+                  <span class="font-weight-bold">Region: </span
+                  >{{ data.region }}
+                </p>
+                <p>
+                  <span class="font-weight-bold">Capital: </span
+                  >{{ data.capital }}
+                </p>
+              </div>
+              <div>
+                <p>
+                  <span class="font-weight-bold">Top Level Domain: </span
+                  >{{ data.topLevelDomain[0] }}
+                </p>
+                <p>
+                  <span class="font-weight-bold">Currency: </span>
+                  <span
+                    v-for="(currency, index) in data.currencies"
+                    :key="currency"
+                  >
+                    {{ currency.name }}
+                    <span v-if="index + 1 < data.currencies.length">,</span>
+                  </span>
+                </p>
+                <p>
+                  <span class="font-weight-bold">Languages: </span>
+                  <span
+                    v-for="(language, index) in data.languages"
+                    :key="language"
+                  >
+                    {{ language.name }}
+                    <span v-if="index + 1 < data.languages.length">,</span>
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div class="borders" v-if="borderCountry">
+              <span class="borders__title">Border Countries: </span>
+              <div v-for="border in borderCountry" :key="border">
+                <div
+                  class="btn border-btn"
+                  :class="toggle ? 'light' : 'dark'"
+                  @click="handleBorder(border.alpha3Code)"
+                >
+                  {{ border.name }}
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </TransitionGroup >
     </div>
     <Loader v-if="isPending" :toggle="toggle"></Loader>
   </div>
@@ -218,11 +225,13 @@ export default {
 }
 
 .back-btn {
-  width: 125px;
-  height: 40px;
-  margin: 70px 0;
-  span {
-    padding: 0 10px;
+  padding: 4em 7em;
+  &--size {
+    width: 125px;
+    height: 40px;
+    span {
+      padding: 0 10px;
+    }
   }
 }
 

@@ -9,7 +9,6 @@ const countries = async (api) => {
     isPending.value = true;
     try {
         const res = await fetch(api);
-        console.log(res);
         if (res.ok) {
             const data = await res.json()
             error.value = null;

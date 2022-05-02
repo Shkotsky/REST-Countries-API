@@ -5,7 +5,9 @@
         <h3>Where in the world?</h3>
       </router-link>
       <div @click="toggleMode" class="navbar__button--mode">
-        <fa icon="moon" /> <span class="font-weight-bold">Dark Mode</span>
+        <fa icon="moon" v-if="currentMode == 'Dark'" />
+        <fa icon="sun" v-else />
+        <span class="font-weight-bold">{{ currentMode }} Mode</span>
       </div>
     </div>
   </div>
@@ -17,13 +19,23 @@ export default {
   props: ["toggle"],
   setup(props, context) {
     const toggle = ref(null);
+    const currentMode = ref(null);
     toggle.value = props.toggle;
+
+    if (!localStorage.darkMode) {
+      currentMode.value = "Dark";
+    } else {
+      currentMode.value = localStorage.darkMode;
+    }
 
     const toggleMode = () => {
       context.emit("toggleMode");
+
+      currentMode.value = localStorage.darkMode;
     };
     return {
       toggleMode,
+      currentMode,
     };
   },
 };
@@ -48,5 +60,8 @@ export default {
 
 .navbar__button--mode {
   cursor: pointer;
+  svg {
+    margin-right: 10px;
+  }
 }
 </style>

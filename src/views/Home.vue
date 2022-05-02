@@ -3,7 +3,7 @@
     class="container"
     :class="toggle ? 'container__light' : 'container__dark'"
   >
-    <div v-if="error" class="error-message">
+   <div v-if="error" class="error-message">
       <h2>{{ error }}</h2>
     </div>
     <div v-if="data" class="wrapper-home">
@@ -38,7 +38,10 @@
           :country="country"
         />
       </div>
-      <div v-else-if="match && region && region != 'All'" class="grid">
+      <div
+        v-else-if="match && region && region != 'All'"
+        class="grid"
+      >
         <AsyncCountry
           v-for="country in match"
           :key="country.index"
@@ -71,7 +74,12 @@
 </template>
 
 <script>
-import { ref, watch, inject, defineAsyncComponent } from "vue";
+import {
+  ref,
+  watch,
+  inject,
+  defineAsyncComponent,
+} from "vue";
 import Country from "@/components/Country.vue";
 import Loader from "@/components/Loader.vue";
 import getCountries from "@/composables/getCountries";
@@ -158,7 +166,7 @@ export default {
       toggle,
       loadMore,
       isPending,
-      error,
+      error
     };
   },
 };
@@ -173,9 +181,9 @@ export default {
   padding: 2em 0;
   position: relative;
   &__icon {
-    position: absolute;
-    margin: 0 30px;
-  }
+  position: absolute;
+  margin: 0 30px;
+}
 }
 input[type="text"],
 select {
@@ -194,6 +202,7 @@ input[type="text"] {
 select {
   padding: 12px 20px;
 }
+
 
 .light-magnifying-glass {
   color: $light-mode-input !important;

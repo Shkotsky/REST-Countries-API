@@ -52,11 +52,13 @@ p {
   &__light {
     background-color: $light-mode-background;
     color: $light-mode-text;
+    transition: all 0.2s linear;
   }
 
   &__dark {
     background-color: $dark-mode-background;
     color: $dark-mode-Text-light-mode-elements;
+    transition: all 0.2s linear;
   }
 }
 .wrapper-home {
@@ -93,11 +95,21 @@ p {
   justify-items: flex-end;
 
   .card {
-    max-width: 248px;
+    max-width: 265px;
     height: 325px;
     border-radius: 7px;
     word-break: break-word;
-
+    &:hover {
+      transform: translateY(-5px);
+      &.dark {
+        background-color: hsl(207, 26%, 23%);
+      }
+      &.light{
+        background-color: hsl(0deg 0% 97%);
+      }
+      
+    }
+    transition: all .2s ease;
     &__text {
       margin: 15px 25px;
 
@@ -115,19 +127,24 @@ p {
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 2s ease;
+  transition: all 1s ease;
 }
-
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+  transform: translateY(30px);
 }
+
+
 
 @media (min-width: 1025px) and (max-width: 1280px) {
   .navbar,
   .wrapper-home,
   .wrapper-details {
     padding: 0 1em;
+  }
+  .back-btn {
+    padding: 4em 1em;
   }
 }
 
@@ -136,6 +153,9 @@ p {
   .wrapper-home,
   .wrapper-details {
     padding: 0 1em;
+  }
+  .back-btn {
+    padding: 4em 1em;
   }
   .grid {
     grid-template-columns: min-content repeat(2, 1fr);
@@ -175,12 +195,14 @@ p {
       left: -8px;
     }
   }
-  
 
   .navbar,
   .wrapper-home,
   .wrapper-details {
     padding: 0 1em;
+  }
+  .back-btn {
+    padding: 4em 1em;
   }
   .grid {
     grid-template-columns: 1fr;
