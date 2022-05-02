@@ -107,7 +107,7 @@ export default {
       if (!data.value) {
         data.value = await countries(api);
       }
-      console.log(data.value);
+      // console.log(data.value);
     };
 
     handleCountries();
