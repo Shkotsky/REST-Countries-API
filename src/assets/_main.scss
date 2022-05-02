@@ -108,6 +108,11 @@ p {
   }
 }
 
+.error-message {
+  display: flex;
+  justify-content: center;
+}
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 2s ease;

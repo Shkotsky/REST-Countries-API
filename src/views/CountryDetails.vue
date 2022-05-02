@@ -3,6 +3,9 @@
     class="container"
     :class="toggle ? 'container__light' : 'container__dark'"
   >
+    <div v-if="error" class="error-message">
+      <h2>{{ error }}</h2>
+    </div>
     <div v-if="data" class="wrapper-details">
       <div
         @click="handleBack"
@@ -77,7 +80,7 @@
         </div>
       </div>
     </div>
-    <Loader v-else :toggle="toggle"></Loader>
+    <Loader v-if="isPending" :toggle="toggle"></Loader>
   </div>
 </template>
 
@@ -99,13 +102,12 @@ export default {
     const borderCountry = ref(null);
     const toggle = inject("toggle");
 
-    console.log(props.country);
     const handleCountries = async (code) => {
       let dataResponse = await countries(
         `https://restcountries.com/v2/alpha/${code}`
       );
 
-      if (await dataResponse.borders) {
+      if ((await dataResponse) && dataResponse.borders) {
         borderCountry.value = await Promise.all(
           dataResponse.borders.map(async (border) => {
             const response = await fetch(
@@ -150,6 +152,8 @@ export default {
       formatNum,
       borderCountry,
       toggle,
+      isPending,
+      error,
     };
   },
 };

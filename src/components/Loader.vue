@@ -29,7 +29,7 @@ export default {
 
 <style lang='scss' scoped>
 $duration: 0.5s;
-$size: 2rem;
+$size: 1rem;
 
 .spinner {
   position: fixed;
