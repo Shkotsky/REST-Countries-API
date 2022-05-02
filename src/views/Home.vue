@@ -26,7 +26,7 @@
           <option>Oceania</option>
         </select>
       </form>
-      <div v-if="match && search.length > 0" class="grid match">
+      <div v-if="match && search.length > 0" class="grid">
         <AsyncCountry
           v-for="country in match"
           :key="country.index"
@@ -37,7 +37,7 @@
       </div>
       <div
         v-else-if="match && region && region != 'All'"
-        class="grid match region"
+        class="grid"
       >
         <AsyncCountry
           v-for="country in match"
@@ -47,7 +47,7 @@
           :country="country"
         />
       </div>
-      <div v-else class="grid data card">
+      <div v-else class="grid card">
         <AsyncCountry
           v-for="country in data.slice(0, loadMore)"
           :key="country.index"
