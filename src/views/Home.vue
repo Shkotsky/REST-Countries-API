@@ -178,7 +178,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2em 0;
+  padding: 3em 0;
   position: relative;
   &__icon {
   position: absolute;
