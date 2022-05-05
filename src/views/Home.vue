@@ -182,7 +182,7 @@ export default {
   position: relative;
   &__icon {
   position: absolute;
-  margin: 0 30px;
+  margin: 15px 30px;
 }
 }
 input[type="text"],
