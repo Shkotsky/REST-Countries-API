@@ -8,14 +8,14 @@
       :key="country.name"
     >
       <img :src="country.flags.svg" alt="flag" />
-      <div class="card__text">
+      <span class="card__text">
         <h3>
           {{ country.name }}
         </h3>
         <p><span>Population: </span>{{ formatNum(country.population) }}</p>
         <p><span>Region: </span>{{ country.region }}</p>
         <p><span>Capital: </span>{{ country.capital }}</p>
-      </div>
+      </span>
     </router-link>
   </TransitionGroup>
 </template>
