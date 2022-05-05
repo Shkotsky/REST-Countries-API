@@ -11,6 +11,9 @@
 * Click on a country to see more detailed information on a separate page
 * Click through to the border countries on the detail page
 * Toggle the color scheme between light and dark mode
+* When he leaves and comes back to the page, light/dark mode will be remembered just as he left it
+
+ 
 
 ## Built With :cowboy_hat_face:	
 - HTML5
