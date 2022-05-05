@@ -1,14 +1,18 @@
 <template>
   <div class="navbar" :class="toggle ? 'light' : 'dark'">
     <div class="wrapper-nav">
-      <router-link :to="{ name: 'Home' }">
-        <h3>Where in the world?</h3>
-      </router-link>
-      <div @click="toggleMode" class="navbar__button--mode">
-        <fa icon="moon" v-if="currentMode == 'Dark'" />
-        <fa icon="sun" v-else />
-        <span class="font-weight-bold">{{ currentMode }} Mode</span>
-      </div>
+      <header>
+        <router-link :to="{ name: 'Home' }">
+          <h3>Where in the world?</h3>
+        </router-link>
+      </header>
+      <nav>
+        <div @click="toggleMode" class="navbar__button--mode">
+          <fa icon="moon" v-if="currentMode == 'Dark'" />
+          <fa icon="sun" v-else />
+          <span class="font-weight-bold">{{ currentMode }} Mode</span>
+        </div>
+      </nav>
     </div>
   </div>
 </template>
