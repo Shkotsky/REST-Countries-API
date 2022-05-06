@@ -1,74 +1,76 @@
 <template>
-  <main>
-    <div
-      class="container"
-      :class="toggle ? 'container__light' : 'container__dark'"
-    >
-      <div v-if="error" class="error-message">
-        <h2>{{ error }}</h2>
-      </div>
-      <div v-if="data" class="wrapper-home">
-        <form @submit.prevent="" class="search-form">
-          <fa
-            class="search-form__icon"
-            :class="{ 'light-magnifying-glass': toggle }"
-            icon="magnifying-glass"
-          />
-          <input
-            type="text"
-            placeholder="Search for a country..."
-            v-model="search"
-            :class="toggle ? 'light' : 'dark'"
-          />
-          <select aria-label="Filter by Region" v-model="region" :class="toggle ? 'light' : 'dark'">
-            <option disabled value="">Filter by Region</option>
-            <option>All</option>
-            <option>Africa</option>
-            <option>Americas</option>
-            <option>Asia</option>
-            <option>Europe</option>
-            <option>Oceania</option>
-          </select>
-        </form>
-        <div v-if="match && search.length > 0" class="grid">
-          <AsyncCountry
-            v-for="country in match"
-            :key="country.index"
-            class="card"
-            :class="toggle ? 'light' : 'dark'"
-            :country="country"
-          />
-        </div>
-        <div v-else-if="match && region && region != 'All'" class="grid">
-          <AsyncCountry
-            v-for="country in match"
-            :key="country.index"
-            class="card"
-            :class="toggle ? 'light' : 'dark'"
-            :country="country"
-          />
-        </div>
-        <div v-else class="grid card">
-          <AsyncCountry
-            v-for="country in data.slice(0, loadMore)"
-            :key="country.index"
-            class="card"
-            :class="toggle ? 'light' : 'dark'"
-            :country="country"
-          />
-        </div>
-        <div v-if="search.length < 1" class="load-more">
-          <div
-            class="btn"
-            :class="toggle ? 'light' : 'dark'"
-            @click="loadMore += 8"
-          >
-            Load More
-          </div>
-        </div>
-      </div>
-      <Loader v-if="isPending" :toggle="toggle"></Loader>
+  <main
+    class="container"
+    :class="toggle ? 'container__light' : 'container__dark'"
+  >
+    <div v-if="error" class="error-message">
+      <h2>{{ error }}</h2>
     </div>
+    <div v-if="data" class="wrapper-home">
+      <form @submit.prevent="" class="search-form">
+        <fa
+          class="search-form__icon"
+          :class="{ 'light-magnifying-glass': toggle }"
+          icon="magnifying-glass"
+        />
+        <input
+          type="text"
+          placeholder="Search for a country..."
+          v-model="search"
+          :class="toggle ? 'light' : 'dark'"
+        />
+        <select
+          aria-label="Filter by Region"
+          v-model="region"
+          :class="toggle ? 'light' : 'dark'"
+        >
+          <option disabled value="">Filter by Region</option>
+          <option>All</option>
+          <option>Africa</option>
+          <option>Americas</option>
+          <option>Asia</option>
+          <option>Europe</option>
+          <option>Oceania</option>
+        </select>
+      </form>
+      <div v-if="match && search.length > 0" class="grid">
+        <AsyncCountry
+          v-for="country in match"
+          :key="country.index"
+          class="card"
+          :class="toggle ? 'light' : 'dark'"
+          :country="country"
+        />
+      </div>
+      <div v-else-if="match && region && region != 'All'" class="grid">
+        <AsyncCountry
+          v-for="country in match"
+          :key="country.index"
+          class="card"
+          :class="toggle ? 'light' : 'dark'"
+          :country="country"
+        />
+      </div>
+      <div v-else class="grid card">
+        <AsyncCountry
+          v-for="country in data.slice(0, loadMore)"
+          :key="country.index"
+          class="card"
+          :class="toggle ? 'light' : 'dark'"
+          :country="country"
+        />
+      </div>
+      <div v-if="search.length < 1" class="load-more">
+        <div
+          class="btn"
+          :class="toggle ? 'light' : 'dark'"
+          @click="loadMore += 8"
+        >
+          Load More
+        </div>
+      </div>
+    </div>
+    <Loader v-if="isPending" :toggle="toggle"></Loader>
   </main>
 </template>
 
