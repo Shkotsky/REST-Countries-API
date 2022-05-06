@@ -1,7 +1,21 @@
+
 # REST Countries API with color theme switcher
 
+## Table of contents
 
-<img src="images/restScrShot.png">
+- [Overview](#overview)
+  - [Screenshot](#screenshot)
+  - [Description](#users-are-able-to)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+- [Author](#author)
+
+## Overview
+
+### Screenshot
+
+![](./images/restScrShot.png)
 
 #### Users are able to:
 
@@ -13,17 +27,24 @@
 * Toggle the color scheme between light and dark mode
 * When he leaves and comes back to the page, light/dark mode will be remembered just as he left it
 
- 
+### Links
 
-## Built With :cowboy_hat_face:	
+- Solution URL: [FrontendMentor solution](https://www.frontendmentor.io/solutions/rest-countries-api-lightdark-mode-vue-3-rJhy8N-Lc) 👈
+- Live Site URL: [Demo](https://celadon-pika-5cb5e6.netlify.app/) 👈
+
+## My process
+
+### Built With
 - HTML5
 - CSS
 - Flexbox
 - CSS Grid
 - SASS (SCSS)
 - JavaScript
+- Fetch API
 - Vue 3
 
+## Author
 
-## Live Demo
-Link for live demo<a href="https://celadon-pika-5cb5e6.netlify.app/"> click here. </a> :point_left:
+- Frontend Mentor - [@Shkotsky](https://www.frontendmentor.io/profile/Shkotsky)
+- LinkedIn - [@Marko](https://www.linkedin.com/in/marko-hristovski-77b9a6149/)
