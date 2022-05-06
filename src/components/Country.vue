@@ -9,9 +9,9 @@
     >
       <img :src="country.flags.svg" alt="flag" />
       <div class="card__text">
-        <h3>
+        <h2>
           {{ country.name }}
-        </h3>
+        </h2>
         <p><span>Population: </span>{{ formatNum(country.population) }}</p>
         <p><span>Region: </span>{{ country.region }}</p>
         <p><span>Capital: </span>{{ country.capital }}</p>
