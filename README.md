@@ -43,6 +43,7 @@
 - JavaScript
 - Fetch API
 - Vue 3
+- Vue Router
 
 ## Author
 
