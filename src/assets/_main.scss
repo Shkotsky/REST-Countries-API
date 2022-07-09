@@ -96,8 +96,8 @@ p {
 .grid {
   display: grid;
   gap: 4.2em 0;
-  grid-template-columns: min-content repeat(3, 1fr);
-  justify-items: flex-end;
+  grid-template-columns: repeat(auto-fit, 20rem);
+  justify-content: space-between;
 
   .card {
     max-width: 265px;
@@ -150,7 +150,7 @@ p {
   }
 }
 
-@media (min-width: 768px) and (max-width: 1026px) and (orientation: landscape) {
+@media (min-width: 768px) and (max-width: 1026px) {
   .navbar,
   .wrapper-home,
   .wrapper-details {
@@ -158,10 +158,6 @@ p {
   }
   .back-btn {
     padding: 4em 1em;
-  }
-  .grid {
-    grid-template-columns: min-content repeat(2, 1fr);
-    justify-items: center;
   }
   .country {
     flex-direction: column;
@@ -206,9 +202,9 @@ p {
   .back-btn {
     padding: 4em 1em;
   }
+
   .grid {
-    grid-template-columns: 1fr;
-    justify-items: center;
+    justify-content: center;
   }
 
   .country {
